@@ -13,6 +13,16 @@ seven pass. Test 5 is the one that makes a home-built rig defensible at all.
 | 6 | **Under load.** Repeat 2 and 5 with the payload bolted on | Same criteria |
 | 7 | **Acceleration tracking.** Compare the measured table acceleration against the commanded trajectory's | Peak within 10 % — if it is low, a firmware limit is throttling you |
 
+![Dial indicator against the carriage](../photos/dial-indicator.jpg)
+
+*Tests 2–4 are all read from a dial indicator on a magnetic base. In this band the
+indicator resolves better than the accelerometer does.*
+
+![Caliper across the stage](../photos/stroke-caliper.jpg)
+
+*And the coarse check that catches wiring and microstepping mistakes before anything
+subtle: command 40 mm, measure 40 mm.*
+
 ## Two traps
 
 **Firmware acceleration limits fail silently.** At the 25× replay scale the trajectory

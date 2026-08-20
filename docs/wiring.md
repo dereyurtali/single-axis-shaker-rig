@@ -2,6 +2,11 @@
 
 ![Wiring diagram](../hardware/drawings/wiring-diagram.svg)
 
+![Driver, Nano and supply](../photos/electronics.jpg)
+
+*The stack as built: DM542 driver, Arduino Nano on a screw-terminal shield, 48 V supply
+underneath. The DIP bank is the red block on the driver's front edge.*
+
 ## Connections
 
 | DM542 terminal | Goes to |

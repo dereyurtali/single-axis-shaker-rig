@@ -55,6 +55,11 @@ length, the table size, the motor frame size and the belt width.
 | NEMA 17 margin (0.45 N·m) | 22× ✓ | **4.6 – 5.2× ✗** |
 | Rail length | 300 mm | **≥ 500 mm** |
 
+![Frame and rails from above](../photos/frame-and-rails-top.jpg)
+
+*Two 500 mm supported rails, four bearings, motor at one end and the toothed idler at the
+other — the layout that came out of the table above.*
+
 One caveat worth stating plainly: the Ender-3 is a bed-slinger. Its own Y axis throws the
 bed back and forth during a print, which pushes against the shaker table. A printer with a
 stationary bed would have been the better choice and was the stated criterion — the
@@ -104,6 +109,11 @@ reversals, which on this waveform happen constantly.
 
 The motor is a **NEMA 23, 57HB84-154**. The retail listing claims 2.2 N·m holding torque.
 The manufacturer's datasheet says **1.6 N·m** — the listing is inflated by 38 %.
+
+![The motor's own label](../photos/motor-label.jpg)
+
+*The claim is printed on the motor itself: `57HB84-154-i6 · 1.5 A · 1.8° · 2.2 N·m`. The
+manufacturer's datasheet for the same part says 1.6 N·m.*
 
 | | Datasheet | Listing |
 |---|---|---|

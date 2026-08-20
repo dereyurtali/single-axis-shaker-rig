@@ -1,5 +1,7 @@
 # Assembly
 
+![The stage from the side](../photos/rig-side.jpg)
+
 Order matters: each step is only checkable while the next one is still off.
 
 1. **Frame.** A rectangle from the 20×20 extrusion. Square the corners; fit the damping

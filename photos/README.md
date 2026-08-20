@@ -1,8 +1,15 @@
 # Photographs
 
-Photographs of the assembled rig.
+The stage as built, before the printer was mounted on it.
 
-Useful shots, if you are adding your own: a three-quarter view of the whole rig with the
-payload on it, the carriage and belt clamp from above, the motor and idler ends, the
-electronics (driver, PSU, Nano) with the wiring visible, and the DIP switch bank set the
-way the [wiring notes](../docs/wiring.md) describe.
+| File | What it shows |
+|---|---|
+| `rig-overview.jpg` | The whole stage on the bench, with driver and supply alongside |
+| `rig-side.jpg` | Side view: frame, both rails, carriage bearings |
+| `frame-and-rails-top.jpg` | From above — rail spacing, bearing positions, motor and idler ends |
+| `electronics.jpg` | DM542 driver, Arduino Nano on its terminal shield, 48 V supply, DIP bank |
+| `motor-label.jpg` | The motor's own label, claiming 2.2 N·m against a datasheet 1.6 N·m |
+| `dial-indicator.jpg` | Indicator on a magnetic base — how the stroke and backlash tests are read |
+| `stroke-caliper.jpg` | Caliper across the stage for the coarse commanded-vs-measured check |
+
+EXIF metadata has been stripped from all of them.

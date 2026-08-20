@@ -8,7 +8,10 @@ software are all here.
 Built for a vibration study on in-space manufacturing; useful on its own as a low-cost
 arbitrary-waveform shaker for anything that fits on a 300 × 320 mm table.
 
-<!-- PHOTO: assembled rig, three-quarter view -->
+![The assembled rig on the bench](photos/rig-overview.jpg)
+
+*The stage assembled: 20×20 extrusion frame, two supported Ø12 rails, four SBR12UU
+bearings under the carriage, NEMA 23 at one end, driver and supply alongside.*
 
 ## What it does
 
@@ -31,6 +34,12 @@ microcontroller; the decisions live on the PC.
 
 Every number above is derived in **[docs/design-rationale.md](docs/design-rationale.md)**,
 not assumed.
+
+The printer mounts on top of the carriage. The full assembly, drawn before the build:
+
+![CAD assembly with the printer mounted](hardware/cad/cad-assembly-iso.png)
+
+More views — front, left and bottom — are in [`hardware/cad/`](hardware/cad/).
 
 ## How it is put together
 
@@ -132,7 +141,11 @@ are the bugs that pass both unit test suites and only surface when the ends meet
 
 ## Status
 
-Built and commissioned. Photographs of the assembled rig are in [`photos/`](photos/).
+The stage is built and the drive chain works end to end: firmware, streaming, and the
+control application all run against the real hardware. Photographs in
+[`photos/`](photos/) show it before the printer was mounted; the printer's mounting is in
+[the CAD views](hardware/cad/). The [acceptance tests](docs/commissioning.md) are the next
+step, and no measurement should be trusted until they pass.
 
 ## Licence
 
