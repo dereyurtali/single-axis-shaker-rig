@@ -61,13 +61,9 @@ length, the table size, the motor frame size and the belt width.
 other — the layout that came out of the table above.*
 
 **The table changed after this was sized.** The 300 × 320 × 6 mm aluminium plate could not
-be laser cut locally, so the table is 3D printed instead. Two consequences, and they pull
-in opposite directions: the moving mass drops, which lowers the required torque and widens
-every margin in §3 — but a printed table is far less stiff than a 6 mm aluminium plate, and
-on a rig built to transmit a known acceleration into a payload, compliance between the
-carriage and the payload is a real defect, not a detail. The mass figures and the torque
-table below still assume the aluminium plate; they will be re-derived, and the table's
-first resonance measured, once it is on the rig.
+be laser cut locally, so the table and the printer's mounting brackets are 3D printed in
+ABS instead — thickened to recover the stiffness. That substitution has its own arithmetic;
+it is [§9](#9-substituting-printed-abs-for-the-aluminium-plate).
 
 One caveat worth stating plainly: the Ender-3 is a bed-slinger. Its own Y axis throws the
 bed back and forth during a print, which pushes against the shaker table. A printer with a
@@ -238,3 +234,48 @@ than a single step** — these are the pauses at the signal's turning points, an
 folds them into the next move. Not a problem, but it is the honest statement of where the
 resolution limit sits: if finer is needed, a 16-tooth pulley (10 µm/step) or 1/32
 microstepping.
+
+---
+
+## 9. Substituting printed ABS for the aluminium plate
+
+The 6 mm aluminium table could not be cut locally, so it is printed in ABS. Replacing metal
+with plastic and keeping the thickness would have been a mistake — on a rig whose whole job
+is to transmit a known acceleration into a payload, compliance between the carriage and the
+payload is a defect, not a detail. So the printed parts were thickened to 15 and 20 mm.
+
+Bending stiffness per unit width goes as `E · t³`, so the thickness that matches a plate of
+another material is
+
+    t_ABS = t_Al · (E_Al / E_ABS)^(1/3)
+
+Aluminium 6061 is 69 GPa. Printed ABS is not one number — solid ABS is about 2.3 GPa, and a
+part with four perimeters and partial infill behaves softer, call it 1.5–2.3 GPa depending
+on how much of the section is actually solid.
+
+| Effective E of the print | Thickness matching 6 mm aluminium | 15 mm gives | 20 mm gives |
+|---|---|---|---|
+| 1.5 GPa | 21.5 mm | 34 % | 81 % |
+| 2.0 GPa | 19.5 mm | 45 % | **107 %** |
+| 2.3 GPa | 18.6 mm | 52 % | 123 % |
+
+**20 mm is the right answer** — it lands on the aluminium plate across the plausible range
+of printed-ABS modulus. **15 mm is not a substitute**: it recovers only a third to a half of
+the bending stiffness, and it is only acceptable where the part is not the thing being bent.
+
+Two things this substitution does *not* buy, worth stating so nobody assumes otherwise:
+
+**It is not much lighter.** ABS is 1.04 g/cm³ against aluminium's 2.70, but the part is
+three times thicker. A 300 × 320 × 20 mm print at 50–70 % effective solidity is 1.0–1.4 kg
+against the aluminium plate's 1.56 kg. Call the moving mass unchanged; the torque budget in
+§3 stands.
+
+**It creeps.** ABS under a sustained 7.8 kg will deform slowly in a way aluminium will not,
+and this rig is meant to stay assembled for a whole measurement campaign. The table's
+flatness is worth re-checking between runs, and any drift belongs in the log next to the
+acceptance tests.
+
+What it *does* buy, for free: printed ABS has a loss factor one to two orders of magnitude
+above aluminium's. Whatever resonance the table has will be far less sharp than the metal
+equivalent — welcome on a rig like this, but no substitute for measuring where that
+resonance actually sits.

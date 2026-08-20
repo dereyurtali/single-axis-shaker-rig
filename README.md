@@ -22,7 +22,7 @@ microcontroller; the decisions live on the PC.
 | | |
 |---|---|
 | Axis | 1 (horizontal, belt-driven linear stage) |
-| Moving mass | ~9 kg (7.8 kg printer + printed table + carriage) — being re-derived, see below |
+| Moving mass | **~10.5 kg** (7.8 kg printer + ~1.2 kg table + carriage) |
 | Resolution | **12.5 µm/step** (20-tooth GT2, 1/16 microstepping) |
 | Usable stroke | ±150 mm (rail-limited; protocol range ±409 mm) |
 | Update rate | **1 kHz** position setpoints, streamed over USB |
@@ -33,10 +33,11 @@ microcontroller; the decisions live on the PC.
 | Cost | **under 200 USD** without the printer and host PC |
 
 Every number above is derived in **[docs/design-rationale.md](docs/design-rationale.md)**,
-not assumed. One caveat: the sizing was done for a 6 mm laser-cut aluminium table. That
-plate could not be cut locally, so the table is 3D printed instead — lighter, which moves
-the torque figures in the safe direction, but the exact numbers are pending the printed
-table's mass.
+not assumed. One substitution to know about: the 6 mm aluminium table could not be cut
+locally, so it is printed in ABS at 20 mm — the thickness that matches the aluminium plate's
+bending stiffness, since `E · t³` is what governs and ABS is about thirty times softer than
+aluminium. Mass comes out about the same, so the torque budget is unaffected
+([§9](docs/design-rationale.md#9-substituting-printed-abs-for-the-aluminium-plate)).
 
 The printer mounts on top of the carriage. The full assembly, drawn before the build:
 

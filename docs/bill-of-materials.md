@@ -37,7 +37,7 @@ added to [`hardware/cad/`](../hardware/cad/).
 |---|---|---|---|
 | 13 | 20×20 V-slot extrusion, slot 6 | 2 × 430 mm | Frame |
 | 14 | 20×80 extrusion, slot 6 | 2 × 250 mm | Cross members / rail supports |
-| 15 | Table | 1 | 3D printed, **own design**, footprint of the printer. Originally specified as a 300 × 320 × 6 mm laser-cut aluminium plate; printing it instead changes the moving mass — see [§2](design-rationale.md#2-the-printer-choice-dominates-everything) |
+| 15 | Table | 1 | 3D printed ABS, **own design**, footprint of the printer. Replaces a 300 × 320 × 6 mm laser-cut aluminium plate, thickened to 20 mm to match its bending stiffness — [§9](design-rationale.md#9-substituting-printed-abs-for-the-aluminium-plate) |
 | 16 | Wide corner bracket, 20×25, slot 6 | 4 | Wide type, not the hidden internal connector — it carries the moment from the printer's mass |
 | 17 | T-slot nuts, slot 6, M5 | as needed | Count not recorded during the build |
 | 18 | M5 socket-head bolts, DIN 912 | assortment | Everything on the rig is M5 except the belt clamps. Lengths were picked as the build went; a 411-piece assortment covered it |
@@ -53,7 +53,7 @@ creeps and fatigues under continuous vibration.
 | Motor mount | 2 pieces | **100 % infill** — it holds the only part of the rig that is deliberately shaking |
 | Belt tensioner | 1 | 0.4 mm nozzle, 4 perimeters, 40 % infill |
 | Printer mounting brackets | — | 0.6 mm nozzle, 4 perimeters, 70 % infill. These carry the printer's 7.8 kg |
-| Table | 1 | Printed in place of the laser-cut aluminium plate |
+| Table | 1 | Printed in place of the laser-cut aluminium plate, **15–20 mm thick** rather than 6 — [§9](design-rationale.md#9-substituting-printed-abs-for-the-aluminium-plate) |
 | Belt clamps | 2 | Bolted to the table with M3 |
 
 Still to make: accelerometer mounts (rigid — a loose mount invents resonances that are not
