@@ -6,7 +6,8 @@ Open hardware: bill of materials, sizing calculations, wiring, firmware and cont
 software are all here.
 
 Built for a vibration study on in-space manufacturing; useful on its own as a low-cost
-arbitrary-waveform shaker for anything that fits on a 300 × 320 mm table.
+arbitrary-waveform shaker for any payload up to about 10 kg that can be bolted down to four
+linear bearings.
 
 ![The assembled rig on the bench](photos/rig-overview.jpg)
 
@@ -22,22 +23,20 @@ microcontroller; the decisions live on the PC.
 | | |
 |---|---|
 | Axis | 1 (horizontal, belt-driven linear stage) |
-| Moving mass | **~10.5 kg** (7.8 kg printer + ~1.2 kg table + carriage) |
+| Moving mass | **~9 kg** (7.8 kg printer + four bearing blocks + four adapters) |
 | Resolution | **12.5 µm/step** (20-tooth GT2, 1/16 microstepping) |
 | Usable stroke | ±150 mm (rail-limited; protocol range ±409 mm) |
 | Update rate | **1 kHz** position setpoints, streamed over USB |
 | Peak step rate | 20 steps/tick = 250 mm/s |
 | Sine range | 0.5 – 200 Hz, amplitude auto-capped against the step-rate ceiling |
 | Peak acceleration | ~1.08 m/s² at the 25× replay scale (2.9 N on the carriage) |
-| Torque margin | **13.5×** at 25× scale (95 mN·m required, 1.28 N·m dynamic available) |
+| Torque margin | **~15×** at 25× scale (≈82 mN·m required, 1.28 N·m dynamic available) |
 | Cost | **under 200 USD** without the printer and host PC |
 
 Every number above is derived in **[docs/design-rationale.md](docs/design-rationale.md)**,
-not assumed. One substitution to know about: the 6 mm aluminium table could not be cut
-locally, so it is printed in ABS at 20 mm — the thickness that matches the aluminium plate's
-bending stiffness, since `E · t³` is what governs and ABS is about thirty times softer than
-aluminium. Mass comes out about the same, so the torque budget is unaffected
-([§9](docs/design-rationale.md#9-substituting-printed-abs-for-the-aluminium-plate)).
+not assumed. One structural note: there is no table *plate*. The four bearings bolt straight to the
+Ender-3's own aluminium extrusion through printed adapters, so the printer *is* the carriage
+([§9](docs/design-rationale.md#9-the-printers-frame-is-the-carriage)).
 
 The printer mounts on top of the carriage. The full assembly, drawn before the build:
 
@@ -147,8 +146,8 @@ are the bugs that pass both unit test suites and only surface when the ends meet
 
 **Under construction.** The frame, rails, bearings, motor and electronics are assembled and
 the drive chain runs end to end — firmware, streaming and the control application all work
-against the real board. Still to fit: the belt, the printed table, the brackets that hold
-the printer, and the printer itself. The photographs in [`photos/`](photos/) show the stage
+against the real board. Still to fit: the belt, the printed adapters that
+join the bearings to the printer's frame, and the printer itself. The photographs in [`photos/`](photos/) show the stage
 as of that point; [the CAD views](hardware/cad/) show where it is going.
 
 After that come the [acceptance tests](docs/commissioning.md). No measurement from this rig

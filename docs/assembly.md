@@ -24,16 +24,18 @@ Order matters: each step is only checkable while the next one is still off.
    is ≥ 20 N, about 1.5× the peak transmitted force. Practical check: finger pressure
    should deflect it no more than 1–2 mm.
 
-5. **Table.** Bolt the printed table to the carriage. The belt clamps fasten to it with
-   M3; everything else on the rig is M5.
+5. **Adapters.** Bolt a printed adapter to each bearing block. There is no table: these
+   four adapters are the entire load path between the bearings and the printer's frame
+   ([§9](design-rationale.md#9-the-printers-frame-is-the-carriage)).
 
 6. **Electronics.** See [wiring](wiring.md). Set the driver current to about 70 % of the
    motor's rated value before powering the motor for the first time.
 
 7. **Hard stops.** Mechanical stops 2 mm outside the software limit, both ends.
 
-8. **Payload.** Bolt the printer to the table — **bolted, not clamped or taped.** Orient
-   it so that the shaking axis is perpendicular to the surface you will be measuring.
+8. **Payload.** Bolt the printer's four extrusion corners down onto the adapters —
+   **bolted, not clamped or taped.** Orient it so that the shaking axis is perpendicular to
+   the surface you will be measuring.
 
 9. **Sensors.** One accelerometer under the table, one on the payload. Mount them rigidly;
    a loose mount invents resonances that are not there.
