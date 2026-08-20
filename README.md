@@ -149,8 +149,15 @@ step, and no measurement should be trusted until they pass.
 
 ## Licence
 
-Code — MIT. Documentation, drawings and the bill of materials — CC BY 4.0. See
-[LICENSE](LICENSE).
+| What | Licence |
+|---|---|
+| Source code — `firmware/`, `software/`, `examples/` | [MIT](LICENSE) |
+| Documentation, drawings, CAD renders, photographs — `docs/`, `hardware/`, `photos/`, this README | [CC BY 4.0](LICENSE-DOCS) |
+
+Nothing in this repository is redistributed from a third party. The printed belt clamp is
+linked to its source on Thingiverse rather than copied; `pyserial` and `numpy` are ordinary
+dependencies; the firmware is compiled against a locally installed Arduino core that is not
+included here.
 
 ## Context
 
@@ -160,4 +167,4 @@ in microgravity additive manufacturing, accepted as an Interactive Presentation 
 `IAC-26,A2,IP,17,x113015`). This repository covers **the apparatus only** — no
 experimental results, which appear in the IAF proceedings.
 
-Ali Dereyurt · Fatih Sultan Mehmet Vakıf University
+Ali Dereyurt

@@ -1,0 +1,22 @@
+Documentation, drawings, CAD renders and photographs
+====================================================
+
+Copyright (c) 2026 Ali Dereyurt
+
+Licensed under the Creative Commons Attribution 4.0 International License
+(CC BY 4.0): https://creativecommons.org/licenses/by/4.0/
+
+This covers everything under docs/, hardware/ and photos/, plus README.md.
+
+You are free to share and adapt this material, including commercially, provided
+you give appropriate credit, link to the licence, and indicate if changes were
+made. Suggested attribution:
+
+    "Single-Axis Shaker Rig" by Ali Dereyurt (github.com/dereyurtali/
+    single-axis-shaker-rig), CC BY 4.0.
+
+Source code — everything under firmware/, software/ and examples/ — is covered
+by the MIT License in LICENSE instead.
+
+NO WARRANTY. This describes a moving machine that can carry ten kilograms at a
+quarter of a metre per second. You build and operate it at your own risk.
