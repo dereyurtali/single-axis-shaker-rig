@@ -1,0 +1,89 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 900 520" width="900" height="520" font-family="Helvetica, Arial, sans-serif">
+  <rect width="900" height="520" fill="#ffffff"/>
+
+  <text x="30" y="42" font-size="19" font-weight="600" fill="#111">Single-axis shaker rig — wiring</text>
+  <text x="30" y="64" font-size="12.5" fill="#555">Logic side and 48 V side share no ground. The DM542 inputs are optoisolated; keep it that way.</text>
+
+  <!-- logic side band -->
+  <rect x="30" y="92" width="400" height="300" rx="8" fill="#f4f7fb" stroke="#c3d3e6"/>
+  <text x="46" y="114" font-size="11.5" font-weight="600" fill="#3a6ea5" letter-spacing="1.2">LOGIC SIDE — USB POWERED</text>
+
+  <!-- power side band -->
+  <rect x="470" y="92" width="400" height="300" rx="8" fill="#fdf5f2" stroke="#e8c4b6"/>
+  <text x="486" y="114" font-size="11.5" font-weight="600" fill="#b45a35" letter-spacing="1.2">POWER SIDE — 48 V</text>
+
+  <!-- PC -->
+  <rect x="52" y="140" width="150" height="76" rx="6" fill="#fff" stroke="#33475b" stroke-width="1.5"/>
+  <text x="127" y="170" font-size="14" font-weight="600" text-anchor="middle" fill="#111">Host PC</text>
+  <text x="127" y="190" font-size="11.5" text-anchor="middle" fill="#555">waveform, safety,</text>
+  <text x="127" y="205" font-size="11.5" text-anchor="middle" fill="#555">flow control</text>
+
+  <!-- Nano -->
+  <rect x="252" y="140" width="150" height="76" rx="6" fill="#fff" stroke="#33475b" stroke-width="1.5"/>
+  <text x="327" y="166" font-size="14" font-weight="600" text-anchor="middle" fill="#111">Arduino Nano</text>
+  <text x="327" y="185" font-size="11.5" text-anchor="middle" fill="#555">ATmega328P · 16 MHz</text>
+  <text x="327" y="201" font-size="11.5" text-anchor="middle" fill="#555">Timer2 1 kHz · Timer1 steps</text>
+
+  <!-- USB link -->
+  <line x1="202" y1="178" x2="252" y2="178" stroke="#33475b" stroke-width="1.6"/>
+  <polygon points="252,178 244,174 244,182" fill="#33475b"/>
+  <polygon points="202,178 210,174 210,182" fill="#33475b"/>
+  <text x="227" y="168" font-size="10.5" text-anchor="middle" fill="#33475b">USB</text>
+  <text x="227" y="200" font-size="10.5" text-anchor="middle" fill="#33475b">250 kbaud</text>
+
+  <!-- Driver -->
+  <rect x="500" y="140" width="160" height="120" rx="6" fill="#fff" stroke="#33475b" stroke-width="1.5"/>
+  <text x="580" y="166" font-size="14" font-weight="600" text-anchor="middle" fill="#111">DM542 driver</text>
+  <text x="580" y="185" font-size="11.5" text-anchor="middle" fill="#555">1.04 A RMS</text>
+  <text x="580" y="201" font-size="11.5" text-anchor="middle" fill="#555">3200 pulse/rev</text>
+  <text x="580" y="217" font-size="11.5" text-anchor="middle" fill="#555">half current at standstill</text>
+  <text x="580" y="240" font-size="11" text-anchor="middle" fill="#b45a35">optoisolated inputs</text>
+
+  <!-- Motor -->
+  <rect x="720" y="140" width="130" height="76" rx="6" fill="#fff" stroke="#33475b" stroke-width="1.5"/>
+  <text x="785" y="166" font-size="14" font-weight="600" text-anchor="middle" fill="#111">NEMA 23</text>
+  <text x="785" y="185" font-size="11.5" text-anchor="middle" fill="#555">57HB84-154</text>
+  <text x="785" y="201" font-size="11.5" text-anchor="middle" fill="#555">1.5 A · 5 Ω · 10 mH</text>
+
+  <!-- PSU -->
+  <rect x="500" y="300" width="160" height="66" rx="6" fill="#fff" stroke="#33475b" stroke-width="1.5"/>
+  <text x="580" y="326" font-size="14" font-weight="600" text-anchor="middle" fill="#111">48 V / 3.3 A</text>
+  <text x="580" y="345" font-size="11.5" text-anchor="middle" fill="#555">Meanwell LRS-150-48</text>
+
+  <!-- STEP/DIR wires crossing the isolation boundary -->
+  <line x1="402" y1="166" x2="500" y2="166" stroke="#3a6ea5" stroke-width="1.6"/>
+  <polygon points="500,166 492,162 492,170" fill="#3a6ea5"/>
+  <text x="451" y="158" font-size="10.5" text-anchor="middle" fill="#3a6ea5">D9 → PUL−</text>
+
+  <line x1="402" y1="192" x2="500" y2="192" stroke="#3a6ea5" stroke-width="1.6"/>
+  <polygon points="500,192 492,188 492,196" fill="#3a6ea5"/>
+  <text x="451" y="184" font-size="10.5" text-anchor="middle" fill="#3a6ea5">D8 → DIR−</text>
+
+  <line x1="402" y1="218" x2="500" y2="218" stroke="#3a6ea5" stroke-width="1.6"/>
+  <polygon points="500,218 492,214 492,222" fill="#3a6ea5"/>
+  <text x="451" y="210" font-size="10.5" text-anchor="middle" fill="#3a6ea5">5 V → PUL+ / DIR+</text>
+
+  <!-- isolation boundary -->
+  <line x1="451" y1="100" x2="451" y2="384" stroke="#b45a35" stroke-width="1.4" stroke-dasharray="7 5"/>
+  <text x="451" y="404" font-size="11" text-anchor="middle" fill="#b45a35" font-weight="600">galvanic isolation — no common ground</text>
+
+  <!-- motor phases -->
+  <line x1="660" y1="178" x2="720" y2="178" stroke="#33475b" stroke-width="1.6"/>
+  <polygon points="720,178 712,174 712,182" fill="#33475b"/>
+  <text x="690" y="170" font-size="10.5" text-anchor="middle" fill="#33475b">A+ A−</text>
+  <text x="690" y="196" font-size="10.5" text-anchor="middle" fill="#33475b">B+ B−</text>
+
+  <!-- psu to driver -->
+  <line x1="580" y1="300" x2="580" y2="260" stroke="#b45a35" stroke-width="1.8"/>
+  <polygon points="580,260 576,268 584,268" fill="#b45a35"/>
+  <text x="568" y="286" font-size="10.5" text-anchor="end" fill="#b45a35">VCC / GND</text>
+
+  <!-- ENA note -->
+  <text x="700" y="332" font-size="10.5" fill="#777">ENA+ / ENA− left unconnected</text>
+
+  <!-- warning -->
+  <rect x="30" y="424" width="840" height="66" rx="6" fill="#fffbe9" stroke="#e3d08a"/>
+  <text x="48" y="448" font-size="12.5" font-weight="600" fill="#8a6d1f">Do not power the Nano from 48 V.</text>
+  <text x="48" y="468" font-size="12" fill="#6b5a2a">The Nano runs from USB. Its VIN limit is 20 V. Because the driver's inputs are optoisolated, the motor's switching</text>
+  <text x="48" y="484" font-size="12" fill="#6b5a2a">noise never reaches the measurement side — which is the entire point of keeping the two grounds apart.</text>
+</svg>

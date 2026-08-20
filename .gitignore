@@ -1,0 +1,11 @@
+__pycache__/
+*.pyc
+.venv/
+venv/
+.DS_Store
+
+# firmware build output
+firmware/build/
+firmware/test/sim
+firmware/test/sim_serial
+firmware/test/adv
