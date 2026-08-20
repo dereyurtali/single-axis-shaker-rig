@@ -16,13 +16,16 @@ Order matters: each step is only checkable while the next one is still off.
 3. **Carriage.** Four SBR12UU bearings into the printed body, onto the rails. Unloaded, it
    must push with one finger.
 
-4. **Motor and belt.** Motor at one end, idler at the other, belt line parallel to the
-   rails. Clamp the belt to the carriage and tension it — **taut enough to give a solid
+4. **Motor and belt.** Motor at one end, the idler at the other on its printed tensioner —
+   the tensioner slides along the belt line, so preload is set by moving the idler rather
+   than by stretching anything. Belt line parallel to the rails. Clamp the belt and
+   tension it — **taut enough to give a solid
    note when plucked, and no more**; overtightening loads the rail bearings. Target preload
    is ≥ 20 N, about 1.5× the peak transmitted force. Practical check: finger pressure
    should deflect it no more than 1–2 mm.
 
-5. **Table.** Bolt the aluminium plate to the carriage.
+5. **Table.** Bolt the printed table to the carriage. The belt clamps fasten to it with
+   M3; everything else on the rig is M5.
 
 6. **Electronics.** See [wiring](wiring.md). Set the driver current to about 70 % of the
    motor's rated value before powering the motor for the first time.

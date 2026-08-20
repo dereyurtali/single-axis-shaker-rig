@@ -4,7 +4,10 @@ What was actually ordered and built, not an idealised list. Suppliers are Turkis
 that is where it was built; the specification column is what matters if you source it
 elsewhere.
 
-Rough total: **~270 USD** excluding the printer, the host PC and metrology.
+Total: **under 200 USD** excluding the printer, the host PC and metrology.
+
+Parts marked **own design** were designed for this rig and 3D printed; their CAD will be
+added to [`hardware/cad/`](../hardware/cad/).
 
 ## Drive
 
@@ -20,56 +23,61 @@ Rough total: **~270 USD** excluding the printer, the host PC and metrology.
 
 | # | Part | Qty | Specification that matters |
 |---|---|---|---|
-| 6 | GT2 belt, open-ended | 1.5 m | **10 mm wide, steel cord.** 6 mm stretches more than one microstep under this load — [§5](design-rationale.md#5-belt-width-is-a-design-variable-not-a-constant) |
+| 6 | GT2 belt, open-ended | 2 m ordered | **10 mm wide, steel cord.** 6 mm stretches more than one microstep under this load — [§5](design-rationale.md#5-belt-width-is-a-design-variable-not-a-constant) |
 | 7 | GT2 pulley, 20 teeth | 1 | Ø8 mm bore (match your motor shaft), **flanged**, two grub screws. 40 mm/rev → 12.5 µm/step. Buy a 16-tooth as well if you may need more amplitude |
 | 8 | GT2 idler, 20 teeth | 1 | **Toothed and on a bearing.** The belt wraps it teeth-inwards; a flat idler lets it walk |
-| 9 | Supported linear rail, Ø12 mm | 2 × 500 mm | Induction-hardened, with the aluminium support rail. Ø12 rather than Ø8 because of the 10.6 kg moving mass and the 500 mm span |
+| 9 | Supported linear rail, Ø12 mm | 2 × 500 mm | Induction-hardened, with the aluminium support rail. Ø12 rather than Ø8 because of the printer's mass and the 500 mm span |
 | 10 | Linear bearing, SBR12UU | 4 | Ball bearings. **Not plastic bushings** — the friction eats the motor's margin |
-| 11 | Belt clamp | 2 | 3D printed, [thing:2354961](https://www.thingiverse.com/thing:2354961) |
+| 11 | Belt clamp | 2 | 3D printed, **own design**. Fastened to the table with the only M3 bolts on the rig |
+| 12 | Belt tensioner | 1 | 3D printed, **own design**. Carries the idler and slides it along the belt line to set preload |
 
 ## Structure
 
 | # | Part | Qty | Specification that matters |
 |---|---|---|---|
-| 12 | 20×20 V-slot extrusion, slot 6 | 2 × 430 mm | Frame |
-| 13 | 20×80 extrusion, slot 6 | 2 × 250 mm | Cross members / rail supports |
-| 14 | Aluminium plate | 1 | **300 × 320 × 6 mm**, laser cut. 1.56 kg. Sized to the printer footprint — see [§2](design-rationale.md#2-the-printer-choice-dominates-everything) |
-| 15 | Wide corner bracket, 20×25, slot 6 | 4 | Wide type, not the hidden internal connector — it carries the moment from the printer's mass |
-| 16 | T-slot nuts, slot 6, M5 | 30 | |
-| 17 | M5 socket-head bolt set, DIN 912 | 1 | 411-piece assortment; you will use more sizes than you plan for |
+| 13 | 20×20 V-slot extrusion, slot 6 | 2 × 430 mm | Frame |
+| 14 | 20×80 extrusion, slot 6 | 2 × 250 mm | Cross members / rail supports |
+| 15 | Table | 1 | 3D printed, **own design**, footprint of the printer. Originally specified as a 300 × 320 × 6 mm laser-cut aluminium plate; printing it instead changes the moving mass — see [§2](design-rationale.md#2-the-printer-choice-dominates-everything) |
+| 16 | Wide corner bracket, 20×25, slot 6 | 4 | Wide type, not the hidden internal connector — it carries the moment from the printer's mass |
+| 17 | T-slot nuts, slot 6, M5 | as needed | Count not recorded during the build |
+| 18 | M5 socket-head bolts, DIN 912 | assortment | Everything on the rig is M5 except the belt clamps. Lengths were picked as the build went; a 411-piece assortment covered it |
+| 19 | M3 socket-head bolts | 4 | The belt clamps onto the printed table — the only M3 fasteners on the rig |
 
 ## 3D-printed parts
 
-PETG or ABS, **60 % infill, 4 perimeters**, 0.2 mm layers. **Not PLA** for structural
-parts — it creeps and fatigues under continuous vibration.
+All printed in **ABS**, all designed for this rig. **Not PLA** for anything structural — it
+creeps and fatigues under continuous vibration.
 
-| Part | Note |
-|---|---|
-| Motor mount | Bolts to the extrusion; belt line must be parallel to the rails |
-| Idler bracket | Same |
-| Carriage body | Four SBR12UU seats plus the belt clamp interface |
-| Belt clamps ×2 | Toothed grip, not friction |
-| Accelerometer mounts ×2 | Rigid; a loose mount invents resonances that are not there |
-| Hard-stop blocks ×2 | 2 mm outside the software limit |
+| Part | Qty | How it was printed |
+|---|---|---|
+| Motor mount | 2 pieces | **100 % infill** — it holds the only part of the rig that is deliberately shaking |
+| Belt tensioner | 1 | 0.4 mm nozzle, 4 perimeters, 40 % infill |
+| Printer mounting brackets | — | 0.6 mm nozzle, 4 perimeters, 70 % infill. These carry the printer's 7.8 kg |
+| Table | 1 | Printed in place of the laser-cut aluminium plate |
+| Belt clamps | 2 | Bolted to the table with M3 |
+
+Still to make: accelerometer mounts (rigid — a loose mount invents resonances that are not
+there) and hard-stop blocks, 2 mm outside the software limit.
 
 ## Instrumentation (optional — needed to *characterise* the rig, not to run it)
 
 | # | Part | Qty | Note |
 |---|---|---|---|
-| 18 | ADXL345 accelerometer breakout | 2–3 | One under the table (proof of what the shaker actually applied), one on whatever you are testing. A third, mounted alongside the first, gives you an honest upper bound on your own measurement uncertainty |
-| 19 | Digital dial indicator, 1 µm, with data output | 1 | Stroke verification. In this band it is **better than an accelerometer** |
-| 20 | Magnetic indicator base | 1 | |
+| 20 | ADXL345 accelerometer breakout | 2–3 | One under the table (proof of what the shaker actually applied), one on whatever you are testing. A third, mounted alongside the first, gives you an honest upper bound on your own measurement uncertainty |
+| 21 | Digital dial indicator, 1 µm, with data output | 1 | Stroke verification. In this band it is **better than an accelerometer** |
+| 22 | Magnetic indicator base | 1 | |
 
 ## Suppliers used
 
 GT2 belt and idler — rhino3dprinter · motor, pulley, Nano and shield — motorobit · driver —
 robolinkmarket · rail and extrusion — mermakcnc, otomasyoncu · linear bearings —
-sahinrulman · PSU — kartalotomasyon · T-nuts — ileri3d · aluminium plate — local laser
-cutting shop.
+sahinrulman · PSU — kartalotomasyon · T-nuts — ileri3d. Everything else was printed here.
 
 ## What we would change
 
 - A printer with a **stationary bed**. The Ender-3's own Y axis pushes back against the
   shaker table during a print.
-- Order the 16-tooth pulley at the same time as the 20-tooth. It is 6 USD and it is the
+- Order the 16-tooth pulley at the same time as the 20-tooth. It is cheap, and it is the
   only lever you have if you need more amplitude later.
+- Count the fasteners while building. The M5 bolt lengths and T-nut count were never
+  written down, so this list cannot tell you how many of each to buy.

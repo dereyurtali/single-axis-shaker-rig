@@ -10,8 +10,8 @@ arbitrary-waveform shaker for anything that fits on a 300 × 320 mm table.
 
 ![The assembled rig on the bench](photos/rig-overview.jpg)
 
-*The stage assembled: 20×20 extrusion frame, two supported Ø12 rails, four SBR12UU
-bearings under the carriage, NEMA 23 at one end, driver and supply alongside.*
+*The stage mid-build: 20×20 extrusion frame, two supported Ø12 rails, four SBR12UU
+bearings, NEMA 23 at one end, driver and supply alongside.*
 
 ## What it does
 
@@ -22,7 +22,7 @@ microcontroller; the decisions live on the PC.
 | | |
 |---|---|
 | Axis | 1 (horizontal, belt-driven linear stage) |
-| Moving mass | **10.6 kg** (7.8 kg printer + 1.6 kg table + 1.2 kg carriage) |
+| Moving mass | ~9 kg (7.8 kg printer + printed table + carriage) — being re-derived, see below |
 | Resolution | **12.5 µm/step** (20-tooth GT2, 1/16 microstepping) |
 | Usable stroke | ±150 mm (rail-limited; protocol range ±409 mm) |
 | Update rate | **1 kHz** position setpoints, streamed over USB |
@@ -30,10 +30,13 @@ microcontroller; the decisions live on the PC.
 | Sine range | 0.5 – 200 Hz, amplitude auto-capped against the step-rate ceiling |
 | Peak acceleration | ~1.08 m/s² at the 25× replay scale (2.9 N on the carriage) |
 | Torque margin | **13.5×** at 25× scale (95 mN·m required, 1.28 N·m dynamic available) |
-| Cost | ~270 USD without the printer and host PC |
+| Cost | **under 200 USD** without the printer and host PC |
 
 Every number above is derived in **[docs/design-rationale.md](docs/design-rationale.md)**,
-not assumed.
+not assumed. One caveat: the sizing was done for a 6 mm laser-cut aluminium table. That
+plate could not be cut locally, so the table is 3D printed instead — lighter, which moves
+the torque figures in the safe direction, but the exact numbers are pending the printed
+table's mass.
 
 The printer mounts on top of the carriage. The full assembly, drawn before the build:
 
@@ -141,11 +144,14 @@ are the bugs that pass both unit test suites and only surface when the ends meet
 
 ## Status
 
-The stage is built and the drive chain works end to end: firmware, streaming, and the
-control application all run against the real hardware. Photographs in
-[`photos/`](photos/) show it before the printer was mounted; the printer's mounting is in
-[the CAD views](hardware/cad/). The [acceptance tests](docs/commissioning.md) are the next
-step, and no measurement should be trusted until they pass.
+**Under construction.** The frame, rails, bearings, motor and electronics are assembled and
+the drive chain runs end to end — firmware, streaming and the control application all work
+against the real board. Still to fit: the belt, the printed table, the brackets that hold
+the printer, and the printer itself. The photographs in [`photos/`](photos/) show the stage
+as of that point; [the CAD views](hardware/cad/) show where it is going.
+
+After that come the [acceptance tests](docs/commissioning.md). No measurement from this rig
+means anything until those pass.
 
 ## Licence
 
@@ -154,10 +160,9 @@ step, and no measurement should be trusted until they pass.
 | Source code — `firmware/`, `software/`, `examples/` | [MIT](LICENSE) |
 | Documentation, drawings, CAD renders, photographs — `docs/`, `hardware/`, `photos/`, this README | [CC BY 4.0](LICENSE-DOCS) |
 
-Nothing in this repository is redistributed from a third party. The printed belt clamp is
-linked to its source on Thingiverse rather than copied; `pyserial` and `numpy` are ordinary
-dependencies; the firmware is compiled against a locally installed Arduino core that is not
-included here.
+Nothing in this repository is redistributed from a third party. The printed parts are all
+original designs for this rig; `pyserial` and `numpy` are ordinary dependencies; the
+firmware is compiled against a locally installed Arduino core that is not included here.
 
 ## Context
 

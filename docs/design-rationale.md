@@ -47,7 +47,7 @@ length, the table size, the motor frame size and the belt width.
 | | Light printer | **Ender-3 V2** |
 |---|---|---|
 | Printer | 1.5 kg | **7.8 kg** |
-| Table needed | 240 × 240 (0.93 kg) | **300 × 320** (1.56 kg, as cut) |
+| Table needed | 240 × 240 (0.93 kg) | **300 × 320** (1.56 kg as aluminium) |
 | Carriage | 0.5 kg | 1.2 kg |
 | **Moving mass** | **2.9 kg** | **10.56 kg** |
 | Force at 25× | 3.2 N | **13.0 N** |
@@ -59,6 +59,15 @@ length, the table size, the motor frame size and the belt width.
 
 *Two 500 mm supported rails, four bearings, motor at one end and the toothed idler at the
 other — the layout that came out of the table above.*
+
+**The table changed after this was sized.** The 300 × 320 × 6 mm aluminium plate could not
+be laser cut locally, so the table is 3D printed instead. Two consequences, and they pull
+in opposite directions: the moving mass drops, which lowers the required torque and widens
+every margin in §3 — but a printed table is far less stiff than a 6 mm aluminium plate, and
+on a rig built to transmit a known acceleration into a payload, compliance between the
+carriage and the payload is a real defect, not a detail. The mass figures and the torque
+table below still assume the aluminium plate; they will be re-derived, and the table's
+first resonance measured, once it is on the rig.
 
 One caveat worth stating plainly: the Ender-3 is a bed-slinger. Its own Y axis throws the
 bed back and forth during a print, which pushes against the shaker table. A printer with a
@@ -85,8 +94,8 @@ equivalent understates acceleration by roughly a factor of two.
 | **25×** | **20.4 mm** | **88 mm/s** | **1078 mm/s²** | **2.9 N** |
 | 50× | 40.7 mm | 177 mm/s | 2156 mm/s² | 5.8 N |
 
-With the built configuration — 10.56 kg moving, 20-tooth pulley (40 mm/rev), the motor
-below:
+With the configuration as sized — 10.56 kg moving (aluminium table; see the note in §2),
+20-tooth pulley (40 mm/rev), the motor below:
 
 | | 25× | 50× |
 |---|---|---|

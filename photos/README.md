@@ -1,6 +1,7 @@
 # Photographs
 
-The stage as built, before the printer was mounted on it.
+The stage mid-build. At the point these were taken the bearings had just gone on: the
+belt, the printed table, the printer brackets and the printer itself are not fitted yet.
 
 | File | What it shows |
 |---|---|
