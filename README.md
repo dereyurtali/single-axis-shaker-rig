@@ -71,6 +71,7 @@ Full command set: **[docs/serial-protocol.md](docs/serial-protocol.md)**.
 | [Assembly](docs/assembly.md) | build order and the tolerances that matter |
 | [Commissioning](docs/commissioning.md) | seven acceptance tests to run before trusting any measurement |
 | [Serial protocol](docs/serial-protocol.md) | command set, framing, flow control |
+| [Examples](examples/) | two synthetic waveform files and the script that regenerates them |
 | [Safety](docs/safety.md) | hard stops, current limits, what not to skip |
 
 ## Software
@@ -85,7 +86,8 @@ The desktop application (Python + Tkinter) drives the rig in four modes:
 - **Sweep** — logarithmic f1 → f2. Equal time per octave; a linear sweep spends almost all
   its time at the top end and never samples the bottom.
 - **CSV waveform** — pick a file and a column, declare the unit. `m/s2` or `g` are double
-  integrated in the frequency domain to displacement.
+  integrated in the frequency domain to displacement. Two synthetic files to try are in
+  [`examples/`](examples/).
 
 Before *Play* unlocks, five checks must all pass: stroke inside the software limit, step
 rate under the ceiling, positions inside int16, peak torque under half of what the motor
@@ -118,6 +120,7 @@ c++ -std=c++11 -O1 -Istub -o sim sim_main.cpp && ./sim     # firmware logic
 cd software
 ./.venv/bin/python test_waveform.py                        # CSV → steps, safety checks
 ./.venv/bin/python test_integration.py                     # both ends together
+./.venv/bin/python test_layout.py                          # UI layout regressions
 ```
 
 `sim_main.cpp` stubs the AVR registers and `Serial`, then `#include`s `shaker.ino`

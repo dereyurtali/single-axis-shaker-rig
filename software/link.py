@@ -1,6 +1,6 @@
 """Arduino Nano step üreteci ile seri bağlantı.
 
-Protokolün bilgisayar tarafı. Firmware'in `control/firmware/shaker/shaker.ino`
+Protokolün bilgisayar tarafı. Firmware'in `firmware/shaker/shaker.ino`
 başındaki açıklamasıyla birlikte okunmalı.
 
 Akıştaki tek zor mesele akış denetimi. Nano'nun halka tamponu 256 örnek; biz

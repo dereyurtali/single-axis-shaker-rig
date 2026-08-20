@@ -18,10 +18,10 @@ import numpy as np
 
 import waveform as wf
 
-REPO = os.path.normpath(os.path.join(os.path.dirname(os.path.abspath(__file__)),
-                                     "..", ".."))
-BELT = os.path.join(REPO, "data", "results", "shaker_belt_25x.csv")
-HOT = os.path.join(REPO, "data", "results", "hot_windows", "hot_06_1854ug.csv")
+EXAMPLES = os.path.normpath(os.path.join(os.path.dirname(os.path.abspath(__file__)),
+                                         "..", "examples"))
+BELT = os.path.join(EXAMPLES, "displacement_example.csv")
+HOT = os.path.join(EXAMPLES, "acceleration_example.csv")
 TMP = os.path.join(os.path.dirname(os.path.abspath(__file__)), "_test_tmp.csv")
 
 fails = 0
@@ -38,7 +38,7 @@ def ok(cond, msg, got=""):
 # --- 1. gerçek yer değiştirme dosyası (t_s, pos_mm) ---
 if os.path.exists(BELT):
     w = wf.build(BELT, col_value=1, col_time=0, units="mm", limit_mm=150)
-    ok(len(w.steps) > 0, "shaker_belt_25x.csv okundu",
+    ok(len(w.steps) > 0, "displacement_example.csv okundu",
        "%d ornek, %.1f s, kaynak %.0f Hz" % (len(w.steps), w.duration_s, w.fs_in))
     ok(abs(w.fs_in - 50) < 2, "ornekleme hizi zaman kolonundan bulundu",
        "%.1f Hz" % w.fs_in)
@@ -50,18 +50,18 @@ if os.path.exists(BELT):
     for c in w.checks:
         print("        %s %-7s %s" % ("+" if c.ok else "!", c.name, c.detail))
 else:
-    ok(False, "shaker_belt_25x.csv bulunamadi")
+    ok(False, "displacement_example.csv bulunamadi — examples/make_examples.py")
 
 # --- 2. gerçek ivme dosyası (t_s, x_g …) ---
 if os.path.exists(HOT):
     w2 = wf.build(HOT, col_value=1, col_time=0, units="g", gain=1.0, limit_mm=150)
-    ok(len(w2.steps) > 0, "hot_06 ivme dosyasi cift integre edildi",
+    ok(len(w2.steps) > 0, "acceleration_example.csv cift integre edildi",
        "%.1f s, tepe %.4f mm" % (w2.duration_s, w2.peak_mm))
     off = abs(float(np.mean(w2.mm)))
     ok(off < 0.05 * w2.peak_mm, "ortalama merkezde (tepenin %5'inden az)",
        "%.2e mm / tepe %.4f mm" % (off, w2.peak_mm))
 else:
-    ok(False, "hot window bulunamadi")
+    ok(False, "acceleration_example.csv bulunamadi — examples/make_examples.py")
 
 # --- 3. SÜRÜKLENME: kaydirilmis ivmeden yer degistirme ---
 fs = 1000.0
